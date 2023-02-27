@@ -1,0 +1,6 @@
+<dx-data-grid [dataSource]="store" [showBorders]="true">
+  <dxo-master-detail [enabled]="true" template="orders"></dxo-master-detail>
+  <div *dxTemplate="let order of 'orders'">
+    <app-detail-grid [orderId]="order.data.OrderID"></app-detail-grid>
+  </div>
+</dx-data-grid>
