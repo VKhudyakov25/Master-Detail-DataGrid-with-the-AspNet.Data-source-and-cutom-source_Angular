@@ -1,6 +1,8 @@
+import DataSource from 'devextreme/data/data_source';
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { createStore } from 'devextreme-aspnet-data-nojquery';
 import { AppService } from '../app.service';
+import CustomStore from 'devextreme/data/custom_store';
 
 @Component({
   selector: 'app-detail-grid',
@@ -8,22 +10,28 @@ import { AppService } from '../app.service';
   styleUrls: ['./detail-grid.component.css'],
   providers: [AppService],
 })
-export class DetailGridComponent implements AfterViewInit {
+export class DetailGridComponent {
   @Input() orderId!: number;
 
-  detailDataSource: any;
+  detailDataSource: DataSource;
 
-  constructor() {}
-
-  ngAfterViewInit(): void {
-    console.log(this.orderId);
-    let serviceUrl = 'https://js.devexpress.com/Demos/Mvc/api/DataGridWebApi';
-    this.detailDataSource = createStore({
-      loadUrl: serviceUrl + '/OrderDetails',
-      loadParams: { orderId: this.orderId },
-      onBeforeSend(method: any, ajaxOptions: any) {
-        ajaxOptions.xhrFields = { withCredentials: true };
-      },
+  constructor(service: AppService) {
+    this.detailDataSource = new DataSource({
+      store: new CustomStore({
+        load: () => {
+          console.log(this.orderId);
+          return service.getDetails(this.orderId);
+        },
+        insert: (val) => {
+          return service.insertDetails(val, this.orderId);
+        },
+        update: (key, val) => {
+          return service.updateDetails(key, val, this.orderId);
+        },
+        remove: (key): any => {
+          return service.removeDetails(key, this.orderId);
+        },
+      }),
     });
   }
 }

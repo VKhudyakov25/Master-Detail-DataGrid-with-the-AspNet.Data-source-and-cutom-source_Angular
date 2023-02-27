@@ -1,4 +1,13 @@
 <dx-data-grid
   [dataSource]="detailDataSource"
   [showBorders]="true"
+  remoteOperations="true"
+>
+  <dxo-editing
+    mode="popup"
+    [allowUpdating]="true"
+    [allowDeleting]="true"
+    [allowAdding]="true"
+  >
+  </dxo-editing
 ></dx-data-grid>

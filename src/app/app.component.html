@@ -1,6 +1,89 @@
-<dx-data-grid [dataSource]="store" [showBorders]="true">
+<h2>As a separate component</h2>
+<dx-data-grid
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  remoteOperations="true"
+>
+  <dxi-column dataField="OrderID">
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-column>
+  <dxi-column dataField="CustomerID"></dxi-column>
+  <dxi-column dataField="EmployeeID"></dxi-column>
+  <dxi-column dataField="OrderDate"></dxi-column>
+  <dxi-column dataField="RequiredDate"></dxi-column>
+  <dxi-column dataField="ShippedDate"></dxi-column>
+  <dxi-column dataField="ShipVia"></dxi-column>
+  <dxi-column dataField="Freight"></dxi-column>
+  <dxi-column dataField="ShipName"></dxi-column>
+  <dxi-column dataField="ShipAddress"></dxi-column>
+  <dxi-column dataField="ShipCity"></dxi-column>
+  <dxi-column dataField="ShipRegion"></dxi-column>
+  <dxi-column dataField="ShipPostalCode"></dxi-column>
+  <dxi-column dataField="ShipCountry"></dxi-column>
+  <dxi-column dataField="Customer"></dxi-column>
+  <dxi-column dataField="Employee"></dxi-column>
+  <dxi-column dataField="Shipper"></dxi-column>
+  <dxo-editing
+    mode="popup"
+    [allowUpdating]="true"
+    [allowDeleting]="true"
+    [allowAdding]="true"
+  >
+  </dxo-editing>
   <dxo-master-detail [enabled]="true" template="orders"></dxo-master-detail>
   <div *dxTemplate="let order of 'orders'">
     <app-detail-grid [orderId]="order.data.OrderID"></app-detail-grid>
+  </div>
+</dx-data-grid>
+
+<h2>As the inline template</h2>
+
+<dx-data-grid
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  remoteOperations="true"
+  (onRowExpanding)="changeValue($event)"
+>
+  <dxi-column dataField="OrderID">
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-column>
+  <dxi-column dataField="CustomerID"></dxi-column>
+  <dxi-column dataField="EmployeeID"></dxi-column>
+  <dxi-column dataField="OrderDate"></dxi-column>
+  <dxi-column dataField="RequiredDate"></dxi-column>
+  <dxi-column dataField="ShippedDate"></dxi-column>
+  <dxi-column dataField="ShipVia"></dxi-column>
+  <dxi-column dataField="Freight"></dxi-column>
+  <dxi-column dataField="ShipName"></dxi-column>
+  <dxi-column dataField="ShipAddress"></dxi-column>
+  <dxi-column dataField="ShipCity"></dxi-column>
+  <dxi-column dataField="ShipRegion"></dxi-column>
+  <dxi-column dataField="ShipPostalCode"></dxi-column>
+  <dxi-column dataField="ShipCountry"></dxi-column>
+  <dxi-column dataField="Customer"></dxi-column>
+  <dxi-column dataField="Employee"></dxi-column>
+  <dxi-column dataField="Shipper"></dxi-column>
+  <dxo-editing
+    mode="popup"
+    [allowUpdating]="true"
+    [allowDeleting]="true"
+    [allowAdding]="true"
+  >
+  </dxo-editing>
+  <dxo-master-detail [enabled]="true" template="orders"></dxo-master-detail>
+  <div *dxTemplate="let order of 'orders'">
+    <dx-data-grid
+      [dataSource]="detailDataSource"
+      [showBorders]="true"
+      remoteOperations="true"
+    >
+      <dxo-editing
+        mode="popup"
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+        [allowAdding]="true"
+      >
+      </dxo-editing
+    ></dx-data-grid>
   </div>
 </dx-data-grid>
