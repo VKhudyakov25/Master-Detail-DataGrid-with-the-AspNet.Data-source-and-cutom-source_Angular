@@ -235,7 +235,6 @@ let orderDetails: any = {
         Sum: 1484.0,
       },
     ],
-    totalCount: 3,
   },
   10249: {
     data: [
@@ -247,7 +246,6 @@ let orderDetails: any = {
       },
       { Product: 'Tofu', Price: 18.6, Quantity: 9, Sum: 167.4 },
     ],
-    totalCount: 2,
   },
   10250: {
     data: [
@@ -270,7 +268,6 @@ let orderDetails: any = {
         Sum: 1484.0,
       },
     ],
-    totalCount: 3,
   },
   10251: {
     data: [
@@ -293,7 +290,6 @@ let orderDetails: any = {
         Sum: 1484.0,
       },
     ],
-    totalCount: 3,
   },
   10252: {
     data: [
@@ -306,7 +302,6 @@ let orderDetails: any = {
         Sum: 2592.0,
       },
     ],
-    totalCount: 3,
   },
   10253: {
     data: [
@@ -314,7 +309,6 @@ let orderDetails: any = {
       { Product: 'Gorgonzola Telino', Price: 10.0, Quantity: 20, Sum: 200.0 },
       { Product: 'Maxilaku', Price: 16.0, Quantity: 40, Sum: 640.0 },
     ],
-    totalCount: 3,
   },
   10254: {
     data: [
@@ -322,7 +316,6 @@ let orderDetails: any = {
       { Product: 'Gorgonzola Telino', Price: 10.0, Quantity: 20, Sum: 200.0 },
       { Product: 'Maxilaku', Price: 16.0, Quantity: 40, Sum: 640.0 },
     ],
-    totalCount: 3,
   },
   10255: {
     data: [
@@ -336,7 +329,6 @@ let orderDetails: any = {
         Sum: 1320.0,
       },
     ],
-    totalCount: 4,
   },
   10256: {
     data: [
@@ -348,7 +340,6 @@ let orderDetails: any = {
       },
       { Product: 'Perth Pasties', Price: 26.2, Quantity: 15, Sum: 393.0 },
     ],
-    totalCount: 2,
   },
   10257: {
     data: [
@@ -361,7 +352,6 @@ let orderDetails: any = {
       },
       { Product: 'Schoggi Schokolade', Price: 35.1, Quantity: 25, Sum: 877.5 },
     ],
-    totalCount: 3,
   },
 };
 
